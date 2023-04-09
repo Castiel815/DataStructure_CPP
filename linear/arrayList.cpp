@@ -14,15 +14,15 @@ void testArrayList() {
 
     //test capacity
     cout << "Capacity of x, y and z = "
-    << ((arrayList<double>*)x)->capacity() << ", "
-    << y.capacity() << ", "
-    << z.capacity() << endl;
+         << ((arrayList<double> *) x)->capacity() << ", "
+         << y.capacity() << ", "
+         << z.capacity() << endl;
 
     // test size
     cout << "Initial size of x, y, and z = "
-    << x->size() << ", "
-    << y.size() << ", "
-    << z.size() << endl;
+         << x->size() << ", "
+         << y.size() << ", "
+         << z.size() << endl;
 
     // test empty
     if (x->empty())
@@ -86,7 +86,7 @@ void testArrayList() {
 
     try {
         y.insert(-3, 0);
-    }catch (std::invalid_argument &e) {
+    } catch (std::invalid_argument &e) {
         cout << "Illegal index exception" << endl;
         cout << "Insert index must be between 0 and list size" << endl;
         cout << e.what() << endl;
