@@ -40,6 +40,60 @@ public:
     // 其他方法
     int capacity() const { return arrayLength; }
 
+    class iterator;
+
+    iterator begin() { return iterator(element); }
+
+    iterator end() { return iterator(element + listSize); }
+
+    class iterator {
+    public:
+        using iterator_category = std::bidirectional_iterator_tag;
+        using value_type = T;
+        using difference_type = ptrdiff_t;
+        using pointer = T *;
+        using reference = T &;
+
+        explicit iterator(T *thePosition = 0) { position = thePosition; }
+
+        T &operator*() const { return *position; }
+
+        T *operator->() const { return &*position; }
+
+        iterator &operator++() {
+            ++position;
+            return *this;
+        }
+
+        iterator operator++(int) {
+            iterator old = *this;
+            ++position;
+            return old;
+        }
+
+        iterator &operator--() {
+            --position;
+            return *this;
+        }
+
+        iterator operator--(int) {
+            iterator old = *this;
+            --position;
+            return old;
+        }
+
+        bool operator!=(const iterator right) const {
+            return position != right.position;
+        }
+
+        bool operator==(const iterator right) const {
+            return position == right.position;
+        }
+
+    protected:
+        T *position;
+    };
+
 protected:
     // 若索引theIndex无效，则抛出异常
     void checkIndex(int theIndex) const;
@@ -94,6 +148,14 @@ void arrayList<T>::erase(int theIndex) {
     std::copy(element + theIndex + 1, element + listSize, element + theIndex);
 
     element[--listSize].~T();
+
+    if (listSize < arrayLength / 4) {
+        int number = std::max(10, arrayLength / 2);
+        T *temp = new T[number];
+        std::copy(element, element + listSize, temp);
+        delete[] element;
+        element = temp;
+    }
 }
 
 template<typename T>
