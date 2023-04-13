@@ -3,9 +3,11 @@
 //
 void testArrayList();
 void testArrayIterator();
+void testVectorList();
 
 int main() {
     testArrayList();
     testArrayIterator();
+    testVectorList();
     return 0;
 }
