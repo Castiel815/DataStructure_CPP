@@ -12,6 +12,12 @@
 #include "linearList.h"
 #include "chainNode.h"
 
+
+class linkedDigraph;
+
+template<typename T>
+class linkedWDigraph;
+
 /**
  * 用单向链表实现线性表
  * @tparam T
@@ -45,6 +51,51 @@ public:
     void insert(int theIndex, const T &theElement) override;
 
     void output(std::ostream &out) const override;
+
+    class iterator;
+
+    iterator begin() { return iterator(firstNode); }
+
+    iterator end() { return iterator(nullptr); }
+
+    class iterator {
+    public:
+        using iterator_category = std::forward_iterator_tag;
+        using value_type = T;
+        using difference_type = ptrdiff_t;
+        using pointer = T *;
+        using reference = T &;
+
+        explicit iterator(chainNode<T> *theNode = nullptr) {
+            node = theNode;
+        }
+
+        T &operator*() const { return node->element; }
+
+        T *operator->() const { return &node->element; }
+
+        iterator &operator++() {
+            node = node->next;
+            return *this;
+        }
+
+        iterator operator++(int) {
+            iterator old = *this;
+            node = node->next;
+            return old;
+        }
+
+        bool operator!=(const iterator right) const {
+            return node != right.node;
+        }
+
+        bool operator==(const iterator right) const {
+            return node == right.node;
+        }
+
+    protected:
+        chainNode<T> *node;
+    };
 
 protected:
     void checkIndex(int theIndex) const;
