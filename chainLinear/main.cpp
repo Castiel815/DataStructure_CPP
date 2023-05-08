@@ -5,8 +5,10 @@
 #include <iostream>
 
 void testChain();
+void testExtendedChain();
 
 int main() {
     testChain();
+    testExtendedChain();
     return 0;
 }

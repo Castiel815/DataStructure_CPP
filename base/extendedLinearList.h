@@ -10,7 +10,7 @@
 template<typename T>
 class extendedLinearList : linearList<T> {
 public:
-    virtual ~extendedLinearList() {}
+    virtual ~extendedLinearList() = default;
 
     virtual void clear() = 0;
 
