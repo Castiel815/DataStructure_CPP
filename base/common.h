@@ -20,10 +20,10 @@ void changeLength1D(T *&a, int oldLength, int newLength) {
         throw std::invalid_argument("new length must be >= 0");
     }
 
-    T *temp = new T[newLength];
-    int number = std::min(oldLength, newLength);
+    T *temp = new T[newLength];     // 新数组
+    int number = std::min(oldLength, newLength);    // 需要复制的元素个数
     std::copy(a, a + number, temp);
-    delete[] a;
+    delete[] a;     // 释放老数组的内存空间
     a = temp;
 }
 

@@ -51,9 +51,14 @@ public:
 protected:
     void checkIndex(int theIndex) const;
 
-    std::vector<T> *element;
+    std::vector<T> *element;    // 存储线性表元素的向量
 };
 
+/**
+ * 构造函数
+ * @tparam T
+ * @param initialCapacity
+ */
 template<typename T>
 vectorList<T>::vectorList(int initialCapacity) {
     if (initialCapacity < 1) {
@@ -62,11 +67,18 @@ vectorList<T>::vectorList(int initialCapacity) {
         throw std::invalid_argument(s.str());
     }
 
+    // 创建容量为0的空向量
     element = new std::vector<T>;
 
+    // vector容量从0增加到initialCapacity
     element->reserve(initialCapacity);
 }
 
+/**
+ * 复制构造函数
+ * @tparam T
+ * @param theList
+ */
 template<typename T>
 vectorList<T>::vectorList(const vectorList<T> &theList) {
     element = new std::vector<T>(*theList.element);
@@ -97,20 +109,32 @@ int vectorList<T>::indexOf(const T &theElement) const {
         return theIndex;
 }
 
+/**
+ * 删除索引为theIndex的元素，如果没有这个元素，则抛出异常
+ * @tparam T
+ * @param theIndex
+ */
 template<typename T>
 void vectorList<T>::erase(int theIndex) {
     checkIndex(theIndex);
     element->erase(begin() + theIndex);
 }
 
+/**
+ * 在索引为theIndex处插入元素theElement
+ * @tparam T
+ * @param theIndex
+ * @param theElement
+ */
 template<typename T>
 void vectorList<T>::insert(int theIndex, const T &theElement) {
-    if (theIndex < 0 || theIndex > size()) {
+    if (theIndex < 0 || theIndex > size()) {    // 无效索引
         std::ostringstream s;
         s << "index = " << theIndex << " size = " << size();
         throw std::invalid_argument(s.str());
     }
 
+    // 如果在重定向量长度时空间不足，那么可以抛出没有捕捉的异常
     element->insert(element->begin() + theIndex, theElement);
 }
 

@@ -12,9 +12,9 @@ class extendedLinearList : linearList<T> {
 public:
     virtual ~extendedLinearList() = default;
 
-    virtual void clear() = 0;
+    virtual void clear() = 0;   // 清表
 
-    virtual void push_back(const T &theElement) = 0;
+    virtual void push_back(const T &theElement) = 0;    // 将元素theElement插到表尾
 };
 
 #endif //DATASTRUCTURE_EXTENDEDLINEARLIST_H

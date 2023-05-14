@@ -34,8 +34,12 @@ public:
 
     void insert(int theIndex, const T &theElement);
 
+    /**
+     * 删除链表的所有节点
+     */
     void clear() {
         while (chain<T>::firstNode != nullptr) {
+            // 删除节点firstNode
             chainNode<T> *nextNode = chain<T>::firstNode->next;
             delete chain<T>::firstNode;
             chain<T>::firstNode = nextNode;
@@ -109,12 +113,19 @@ void extendedChain<T>::insert(int theIndex, const T &theElement) {
     chain<T>::listSize++;
 }
 
+/**
+ * 在链表尾端插入元素theElement的节点
+ * @tparam T
+ * @param theElement
+ */
 template<typename T>
 void extendedChain<T>::push_back(const T &theElement) {
     auto *newNode = new chainNode<T>(theElement, nullptr);
+
+    // 链表为空
     if (chain<T>::firstNode == nullptr) {
         chain<T>::firstNode = lastNode = newNode;
-    } else {
+    } else {    // 把新元素节点附加到lastNode指向的节点
         lastNode->next = newNode;
         lastNode = newNode;
     }
