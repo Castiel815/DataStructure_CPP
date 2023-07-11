@@ -3,8 +3,11 @@
 //
 
 void testMatrix();
+void testDiagonalMatrix();
 
 int main() {
     testMatrix();
+
+    testDiagonalMatrix();
     return 0;
 }
