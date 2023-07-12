@@ -4,10 +4,14 @@
 
 void testMatrix();
 void testDiagonalMatrix();
+void testTriDiagonalMatrix();
 
 int main() {
     testMatrix();
 
     testDiagonalMatrix();
+
+    testTriDiagonalMatrix();
+
     return 0;
 }
