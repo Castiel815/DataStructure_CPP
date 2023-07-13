@@ -5,6 +5,7 @@
 void testMatrix();
 void testDiagonalMatrix();
 void testTriDiagonalMatrix();
+void testLowerTriangularMatrix();
 
 int main() {
     testMatrix();
@@ -12,6 +13,8 @@ int main() {
     testDiagonalMatrix();
 
     testTriDiagonalMatrix();
+
+    testLowerTriangularMatrix();
 
     return 0;
 }
