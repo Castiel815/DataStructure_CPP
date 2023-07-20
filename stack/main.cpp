@@ -3,9 +3,15 @@
 //
 
 void testDerivedArrayStack();
+void testArrayStack();
+void testDerivedLinkedStack();
 
 int main() {
     testDerivedArrayStack();
+
+    testArrayStack();
+
+    testDerivedLinkedStack();
 
     return 0;
 }
