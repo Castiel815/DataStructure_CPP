@@ -5,6 +5,7 @@
 void testDerivedArrayStack();
 void testArrayStack();
 void testDerivedLinkedStack();
+void testLinkedStack();
 
 int main() {
     testDerivedArrayStack();
@@ -12,6 +13,8 @@ int main() {
     testArrayStack();
 
     testDerivedLinkedStack();
+
+    testLinkedStack();
 
     return 0;
 }
