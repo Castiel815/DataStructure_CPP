@@ -4,8 +4,12 @@
 
 void testArrayQueue();
 
+void testLinkedQueue();
+
 int main() {
-    testArrayQueue();
+    //testArrayQueue();
+
+    testLinkedQueue();
 
     return 0;
 }
