@@ -3,9 +3,11 @@
 //
 
 void testSortedChain();
+void testSkipList();
 
 int main() {
     testSortedChain();
 
+    testSkipList();
     return 0;
 }
