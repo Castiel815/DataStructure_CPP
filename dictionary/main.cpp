@@ -5,6 +5,7 @@
 void testSortedChain();
 void testSkipList();
 void testHashTable();
+void testHashChains();
 
 int main() {
     testSortedChain();
@@ -12,5 +13,7 @@ int main() {
     testSkipList();
 
     testHashTable();
+
+    testHashChains();
     return 0;
 }

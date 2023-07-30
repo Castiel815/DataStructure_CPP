@@ -8,4 +8,6 @@ add_executable(dictionary main.cpp pairNode.h dictionary.h sortedChain.cpp sorte
         skipList.h
         hash.h
         hashTable.cpp
-        hashTable.h)
+        hashTable.h
+        hashChains.cpp
+        hashChains.h)
