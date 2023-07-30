@@ -4,10 +4,13 @@
 
 void testSortedChain();
 void testSkipList();
+void testHashTable();
 
 int main() {
     testSortedChain();
 
     testSkipList();
+
+    testHashTable();
     return 0;
 }
