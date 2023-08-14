@@ -3,8 +3,11 @@
 //
 
 void testMaxHeap();
+void testMaxHblt();
 
 int main() {
     testMaxHeap();
+
+    testMaxHblt();
     return 0;
 }
