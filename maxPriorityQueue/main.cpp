@@ -4,10 +4,13 @@
 
 void testMaxHeap();
 void testMaxHblt();
+void testMinHeap();
 
 int main() {
     testMaxHeap();
 
     testMaxHblt();
+
+    testMinHeap();
     return 0;
 }

@@ -7,4 +7,7 @@ add_executable(maxPriorityQueue main.cpp
         maxHeap.cpp
         maxHeap.h
         maxHblt.cpp
-        maxHblt.h)
+        maxHblt.h
+        minPriorityQueue.h
+        minHeap.cpp
+        minHeap.h)
